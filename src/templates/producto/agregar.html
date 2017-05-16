@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block banner %}
+{% endblock %}
+{% block main %}
+<article id="mainingre">
+	<header>
+		<h2>Ingrediente</h2>
+		<p>Adicionar ingredientes en el restaurante</p>
+	</header>
+	<section class="wrapper style5">
+	<div class="container">
+	<h4 style="color:green; padding-top: 0px; margin-top: -40px;">{{mensaje}}</h4>
+		<!--<h4>Ingrediente</h4>
+				<form method="post" action=""> 
+				<div class="row uniform">
+					<div class="col-sm-6 col-xs-12">
+						{{ form.nombre }}
+					</div>
+					<div class="col-sm-6 col-xs-12">
+						{{ form.descripcion }}
+					</div>
+					<input type="hidden" name="pk" value="{{pk}}">
+					<div class="12u$">
+						<ul class="actions">
+							<li><input type="submit" value="Guardar" class="special" /></li>
+							<li><button type="button" class="special" onclick=" location.href='{% url 'ingredienteListar' %}'">Atras</button></li>
+						</ul>
+					</div>
+				</div>
+				</form>-->
+		<h4>Producto</h4>
+			<form method="post" action="">{% csrf_token %}
+				<div class="row uniform">
+					<div class="6u 12u$(xsmall)">
+						{{ form.nombre }}
+					</div>
+					<div class="6u$ 12u$(xsmall)">
+						{{ form.precio}}
+					</div>
+					<div class="6u$ 12u$(xsmall)">
+						{{ form.imagen}}
+					</div>
+					<div class="6u 12u$(xsmall)">
+						{{ form.vigencia }}
+					</div>
+					<div class="6u$ 12u$(xsmall)">
+						{{ form.cantidad }}
+					</div>
+					<div class="6u 12u$(small)">
+						<label>Ingredientes Principales</label>
+						{% for value, text in form.ingredientes_principales.choices %}
+
+						{% endfor %}
+						{{ form.ingredientes_principales}}
+					</div>
+
+					<div class="12u$">
+						<ul class="actions">
+							<li><input type="submit" value="Agregar" class="special" /></li>
+						</ul>
+					</div>
+				</div>
+			</form>
+	</div>
+	</section>
+</article>
+{% endblock %}

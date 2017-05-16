@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block banner %}
+{% endblock %}
+{% block main %}
+<article id="mainproducto">
+	<header>
+		<h2>Producto</h2>
+		<p>Adicionar productos en el restaurante</p>
+	</header>
+
+	<section class="wrapper style5">
+	<div class="container">
+		<h4>Producto</h4>
+		<br/>
+		<button type="button" class="special" onclick=" location.href='{% url 'productoAgregar' %}'">Agregar Productos</button>
+		<br/>
+		<br/>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Nombre</th>
+					<th>Opciones</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for instance in productos %}
+				<tr>
+					<td >{{forloop.counter}}</td>
+					<td>{{instance.nombre}}</td>
+					<td> <ul class="actions"><li><form method="POST" action="{% url 'productoEditar' pk=instance.pk %}">{%csrf_token%}<input type="submit" name="pk" class="special" value="Editar"></form></li><li><form method="POST" action="">{%csrf_token%} <input type="hidden" name="id" value="{{instance.id}}"><input type="submit" name="submit" class="special" value="Eliminar"></form></li></ul></td>
+				</tr>
+			{% endfor%}
+			</tbody>
+		</table>
+	</div>
+	</section>
+</article>
+{% endblock %}

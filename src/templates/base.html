@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title>Hamburguer</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		{% include "head_css.html" %}
+	</head>
+	<body class="landing">
+			<div id="page-wrapper">
+				{% include "header.html" %}
+				{% block banner %}
+					<section id="banner">
+						<div class="inner">
+							<h2>Hamburguer</h2>
+							<p>Lo mejor en estilos de hamburguesas<br />
+							y comidas rapidas<br />
+							 <a href="#">Crea tus propios pedidos personalizados</a>.</p>
+							<ul class="actions">
+								<li><a href="#" class="button special">Crear Pedido</a></li>
+							</ul>
+						</div>
+						<a href="#one" class="more scrolly">Más Información</a>
+					</section>
+				{% endblock %}
+				{% block main %}
+				{% endblock %}
+
+			{% include "footer.html" %}
+			</div>
+		{% include "javascript.html" %}
+
+	</body>
+</html>

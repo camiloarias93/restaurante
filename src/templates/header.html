@@ -1,0 +1,19 @@
+					<header id="header" class="alt">
+						<h1><a href="index.html">Hamburguer</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="{% url 'inicio' %}">Inicio</a></li>
+											<li><a href="{% url 'auth_login' %}">Iniciar Sesión</a></li>
+											
+											<li><a href="{% url 'ingredienteListar' %}">Ingrediente</a></li>
+											<li><a href="{% url 'productoListar' %}">Producto</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
